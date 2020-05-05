@@ -9,7 +9,8 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    address: null,
   },
 
   onLoad: function() {
@@ -19,7 +20,9 @@ Page({
       })
       return
     }
-      wx.getSetting({
+    wx.authorize({scope: "scope.userLocation"});
+    
+    wx.getSetting({
         success: res => {
           if (res.authSetting['scope.userInfo']) {
             // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
@@ -52,7 +55,10 @@ Page({
       })
     }
   },
-
+  onGetOpenidAndLocation: function(){
+    this.onGetOpenid();
+    this.onGetLocation();
+  },
   onGetOpenid: function() {
     // 调用云函数
     wx.cloud.callFunction({
@@ -73,5 +79,51 @@ Page({
       }
     })
   },
+  onGetLocation: function(){
+    let that = this;
 
+    wx.getLocation({
+      type: 'wgs84',
+      success (res) {
+        console.log(res);
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const accuracy = res.accuracy
+        // 构建请求地址
+        var qqMapApi = 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + latitude + ','+ longitude + "&key=" + 'QVIBZ-PY3KS-VQZOM-64WJD-5BOFV-EAFSA';
+        that.sendRequest(qqMapApi);
+      }
+     })
+  },
+  /**
+ * 发送请求获取地图接口的返回值
+ */
+sendRequest: function (qqMapApi) {
+  let that = this;
+  // 调用请求
+  wx.request({
+    url: qqMapApi,
+    data: {},
+    method: 'GET',
+    success: (res) => {
+      if (res.statusCode == 200 && res.data.status == 0) {
+        // 从返回值中提取需要的业务地理信息数据
+        console.log("逆向解析后的地址信息")
+        console.log(res)
+        app.globalData.address = {
+          province: res.data.result.address_component.province,
+          city: res.data.result.address_component.city,
+          district: res.data.result.address_component.district,
+          street: res.data.result.address_component.street,
+          lat: res.data.result.location.lat,
+          long: res.data.result.location.long,
+          address: res.data.result.formatted_addresses.recommend
+        }
+        this.setData({
+          address: res.data.result.formatted_addresses.recommend
+        })
+      }
+    }
+  })
+},
 })

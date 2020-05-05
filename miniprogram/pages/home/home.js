@@ -7,16 +7,37 @@ Page({
   },
 
   onLoad: function (options) {
+    // 如果没有登录，则重定向到个人中心登录
     if(app.globalData.userInfo === null){
       wx.redirectTo({
         url: '/pages/userCenter/userCenter',
       })
-    }
-    console.log(app.globalData.userInfo)
-
-    
+    }    
   },
 
+  // 处理车位出租逻辑
+  rentout: function(){
+    // 假设有个锁的id
+    
+
+  },
+
+  // 查找属于自己的车位
+  findMyPark: function(){
+    // 暂时使用本地数据
+    var myParkingSpaces = []
+    for(ps of app.globalData.parkingSpaces){
+      if (ps.openid === app.globalData.openid){
+        myParkingSpaces.push(ps)
+      }
+    }
+  },
+  // 添加车位
+  addParking: function(){
+    const lockid = "lock000";
+    var myParkingSpaces = []
+    
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

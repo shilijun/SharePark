@@ -6,9 +6,10 @@
       size="default"
     ></button>
     <view class="userinfo-nickname-wrapper">
-      <button class="userinfo-nickname" bindtap="onGetOpenid" open-type="getUserInfo" 
+      <button class="userinfo-nickname" bindtap="onGetOpenidAndLocation" open-type="getUserInfo" 
       bindgetuserinfo="onGetUserInfo">{{logged? nickname:"登录"}}</button>
     </view>
+    <view class="info">{{address}}</view>
   </view>
   <!-- 我的车位 -->
   <view class="item">

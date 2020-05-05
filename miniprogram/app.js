@@ -17,7 +17,10 @@ App({
 
     this.globalData = {
       userInfo: null,
-      openid: null
+      openid: null,
+      location: null,
+      parkingSpaces : [],
+
     }
   }
 })

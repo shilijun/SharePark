@@ -1,5 +1,5 @@
 <!--pages/home/home.wxml-->
 <view class="container">
-  <button >找车位</button>
-  <button>出租车位</button>
+  <button catchtap="rent">找车位</button>
+  <button catchtap="rentout">出租车位</button>
 </view>

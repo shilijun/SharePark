@@ -18,6 +18,11 @@
     "pages/im/room/room",
     "pages/recordDetail/recordDetail"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息效果展示"
+    }
+  },  
   "tabBar": {
     "list": [
       {
