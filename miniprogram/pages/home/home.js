@@ -9,10 +9,12 @@ Page({
   onLoad: function (options) {
     if(app.globalData.userInfo === null){
       wx.redirectTo({
-        url: '/pages/index/index',
+        url: '/pages/userCenter/userCenter',
       })
     }
     console.log(app.globalData.userInfo)
+
+    
   },
 
   /**

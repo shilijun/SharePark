@@ -1,2 +1,5 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="container">
+  <button >找车位</button>
+  <button>出租车位</button>
+</view>

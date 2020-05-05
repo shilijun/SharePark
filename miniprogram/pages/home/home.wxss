@@ -1,1 +1,13 @@
-/* pages/home/home.wxss */
+.container {
+  background-color: #fff;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+}
+button {
+  border: solid #000;
+}

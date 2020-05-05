@@ -1,11 +1,27 @@
 // pages/records/records.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    records:[
+      {
+        type:0,  // 0 表示出租，1表示租
+        start:'2020-5-5 16:00',
+        end: '2020-5-5 20:00',
+        money: 50
+      },
+      {
+        type:0,  // 0 表示出租，1表示租
+        start:'2020-5-4 16:00',
+        end: '2020-5-5 20:00',
+        money: 500
+      },
+      {
+        type:1,  // 0 表示出租，1表示租
+        start:'2020-5-3 16:00',
+        end: '2020-5-5 20:00',
+        money: 900
+      }
+    ]
   },
 
   /**
@@ -15,6 +31,12 @@ Page({
 
   },
 
+  seeDetail: function(event){
+    console.log(event);
+    wx.navigateTo({
+      url: '/pages/recordDetail/recordDetail?id='+event.currentTarget.dataset.id
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

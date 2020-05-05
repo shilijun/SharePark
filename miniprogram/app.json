@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/userCenter/userCenter",
     "pages/home/home",
+    "pages/userCenter/userCenter",
     "pages/records/records",
     "pages/index/index",
     "pages/userConsole/userConsole",
@@ -15,7 +15,8 @@
     "pages/openapi/callback/callback",
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
-    "pages/im/room/room"
+    "pages/im/room/room",
+    "pages/recordDetail/recordDetail"
   ],
   "tabBar": {
     "list": [

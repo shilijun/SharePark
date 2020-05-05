@@ -10,12 +10,25 @@
       bindgetuserinfo="onGetUserInfo">{{logged? nickname:"登录"}}</button>
     </view>
   </view>
-
+  <!-- 我的车位 -->
+  <view class="item">
+    <view class="item-text">
+      我的车位
+    </view>
+  </view>
+  <!-- 账单 -->
+  <view class="item">
+    <view class="item-text">
+      账单
+    </view>
+  </view>
   <!-- 跳转到原来的index页面 -->
   <view class="item">
-    <view class="uploader-text">
+    <view class="item-text">
       <navigator url="/pages/index/index" open-type="navigate">index</navigator>
     </view>
   </view>
+
+
 
 </view>

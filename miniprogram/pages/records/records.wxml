@@ -1,2 +1,8 @@
 <!--pages/records/records.wxml-->
-<text>pages/records/records.wxml</text>
+<view class="container">
+<view class="item" wx:for="{{records}}" catchtap="seeDetail" data-id="{{index}}">
+  <text>{{item.start}}</text>
+  <text>{{item.end}}</text>
+  <text>{{item.money}}</text>
+</view>
+</view>

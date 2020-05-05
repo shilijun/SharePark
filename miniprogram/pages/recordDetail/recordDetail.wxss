@@ -1,0 +1,6 @@
+/* miniprogram/pages/recordDetail/recordDetail.wxss */
+
+.detail-image {
+  width: 300rpx;
+  height: 300rpx;
+}
