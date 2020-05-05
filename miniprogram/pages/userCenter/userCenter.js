@@ -83,7 +83,8 @@ Page({
     let that = this;
 
     wx.getLocation({
-      type: 'wgs84',
+      type: 'wgs84', //wgs84 返回 gps 坐标，gcj02 返回可用于
+      isHighAccuracy: true,
       success (res) {
         console.log(res);
         const latitude = res.latitude
