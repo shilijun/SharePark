@@ -1,8 +1,16 @@
 <!--pages/records/records.wxml-->
 <view class="container">
-<view class="item" wx:for="{{records}}" catchtap="seeDetail" data-id="{{index}}">
-  <text>{{item.start}}</text>
-  <text>{{item.end}}</text>
-  <text>{{item.money}}</text>
-</view>
+  <view class="item" wx:for="{{rendRecords}}" catchtap="seeDetail" data-id="{{index}}">
+    <text>{{item.renderid}}</text>
+    <text>{{item.tenantid}}</text>
+    <text>{{item.starttime}}</text>
+    <text>{{item.endtime}}</text>
+  </view>
+  
+  <view class="item" wx:for="{{mrendRecords}}" catchtap="seeDetail" data-id="{{index}}">
+    <text>{{item.renderid}}</text>
+    <text>{{item.tenantid}}</text>
+    <text>{{item.starttime}}</text>
+    <text>{{item.endtime}}</text>
+  </view>
 </view>

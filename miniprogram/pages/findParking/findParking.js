@@ -20,7 +20,7 @@ Page({
     // console.log(choose)
     // 出租记录
     const d = {
-      renterid: choose.openid,
+      renderid: choose.openid,
       tenantid: app.globalData.openid,
       starttime: choose.starttime,
       endtime: choose.endtime

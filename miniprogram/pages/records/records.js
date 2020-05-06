@@ -1,34 +1,40 @@
 // pages/records/records.js
-Page({
-
+const app = getApp();
+Page({  
   data: {
-    records:[
-      {
-        type:0,  // 0 表示出租，1表示租
-        start:'2020-5-5 16:00',
-        end: '2020-5-5 20:00',
-        money: 50
-      },
-      {
-        type:0,  // 0 表示出租，1表示租
-        start:'2020-5-4 16:00',
-        end: '2020-5-5 20:00',
-        money: 500
-      },
-      {
-        type:1,  // 0 表示出租，1表示租
-        start:'2020-5-3 16:00',
-        end: '2020-5-5 20:00',
-        money: 900
-      }
-    ]
+    // 我的出租记录
+    rendRecords:[      
+    ],
+    // 我的租车位记录
+    mrendRecords:[
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const myid = app.globalData.openid;
+    console.log("myid")
+    // console.log(myid)
+    // console.log(app.globalData.rendRecordsTable)
+    var records= [];
+    var records2=[];
+    for(var r of app.globalData.rendRecordsTable){
+      console.log(r);
+      if(r.renterid===myid){
+        console.log("find a record as render");
+        records.push(r)
+      }
+      if(r.tenantid===myid){
+        console.log("find a record as render");
+        records2.push(r)
+      }
+    }
+    this.setData({
+      rendRecords:records,
+      mrendRecords: records2,
+    })
   },
 
   seeDetail: function(event){
