@@ -1,0 +1,48 @@
+<!--miniprogram/pages/rentoutDetail/rentoutDetail.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <!-- 选择车位 -->
+  <view>
+    <text>选择你的车位</text>
+    <picker mode="selector" value="{{myparking[currentParking]}}" range="{{myparking}}" bindchange="bindParkingChange" name="parking">
+      <view class="picker">
+        {{(currentParking===null)?"请选择车位":myparking[currentParking]}}
+      </view>
+    </picker>
+  </view>
+
+  <!-- 添加车位 -->
+  <view>
+    <button >添加我的车位</button>
+    <!-- 这里应该放个图片按钮 -->
+  </view>
+
+  <!-- 设置时间 -->
+  <view class="section">
+    <view class="section__title">开始时间</view>
+    <picker mode="time" value="{{starttime}}" start="00:00" end="23:59" bindchange="bindStartTimeChange" name="starttime">
+      <view class="picker">
+        {{starttime}}
+      </view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="section__title">结束时间</view>
+    <picker mode="time" value="{{endtime}}" start="00:00" end="23:59" bindchange="bindEndTimeChange" name="endtime">
+      <view class="picker">
+        {{endtime}}
+      </view>
+    </picker>
+  </view>
+  <!-- 设置价格 -->
+  <view>
+    <text>价格</text>
+    <input type="number" name="price"></input>
+    <text>元/小时</text>
+  </view>
+  <!-- 提交、复位按钮 -->
+  <view class="btn-area">
+    <button formType="submit">Submit</button>
+    <button formType="reset">Reset</button>
+  </view>
+</form>

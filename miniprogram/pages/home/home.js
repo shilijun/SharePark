@@ -17,21 +17,11 @@ Page({
 
   // 处理车位出租逻辑
   rentout: function(){
-    // 假设有个锁的id
-    
-
+    wx.navigateTo({
+      url: '/pages/rentoutDetail/rentoutDetail',
+    })
   },
 
-  // 查找属于自己的车位
-  findMyPark: function(){
-    // 暂时使用本地数据
-    var myParkingSpaces = []
-    for(ps of app.globalData.parkingSpaces){
-      if (ps.openid === app.globalData.openid){
-        myParkingSpaces.push(ps)
-      }
-    }
-  },
   // 添加车位
   addParking: function(){
     const lockid = "lock000";
