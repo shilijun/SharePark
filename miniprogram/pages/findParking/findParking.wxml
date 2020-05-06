@@ -1,0 +1,27 @@
+<!--miniprogram/pages/findParking/findParking.wxml-->
+<!--miniprogram/pages/rentoutDetail/rentoutDetail.wxml-->
+
+
+
+<view class="container">
+  <view class="item" wx:for="{{avaliabelParkings}}">
+    <view>
+      <text> 锁id： </text> 
+      <text>{{item.lockid}}</text>
+    </view>
+
+    <view>
+    <text> 价格： </text> 
+    <text>{{item.price}}元/小时</text>
+    </view>
+    
+    <view>
+      <text>可用时间：</text>
+      <text>{{item.starttime}}-{{item.endtime}}</text>
+    </view>
+
+    <view> 地址：<text>{{item.addr.address}}</text> </view>
+    
+    <button catchtap="rent" data-index="{{index}}">租</button>
+  </view>
+</view>

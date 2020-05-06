@@ -17,7 +17,8 @@
     "pages/im/im",
     "pages/im/room/room",
     "pages/recordDetail/recordDetail",
-    "pages/rentoutDetail/rentoutDetail"
+    "pages/rentoutDetail/rentoutDetail",
+    "pages/findParking/findParking"
   ],
   "permission": {
     "scope.userLocation": {

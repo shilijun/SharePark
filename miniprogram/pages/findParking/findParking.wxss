@@ -1,5 +1,4 @@
-/* miniprogram/pages/rentoutDetail/rentoutDetail.wxss */
-/**index.wxss**/
+/* miniprogram/pages/findParking/findParking.wxss */
 
 page {
   background: #f6f6f6;

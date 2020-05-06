@@ -18,9 +18,24 @@ App({
     this.globalData = {
       userInfo: null,
       openid: null,
-      location: null,
-      parkingSpaces : [],
-
+      address: null,
+      parkingSpaces : [
+        {
+          addr: {address: "成都市龙泉驿区人民政府(东街东)", lat: 30.55663, long:"undefined"},
+          endtime: "11:32",
+          lockid: "lock000",
+          openid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+          price: "5",
+          starttime: "11:32"
+        }
+    ],
+      rendRecordsTable: [
+        { endtime: "11:32",
+          renterid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+          starttime: "11:32",
+          tenantid: "oR6fd4v520A5p902RsWBx4xjrpS4"}
+        ],
+      
     }
   }
 })

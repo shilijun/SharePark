@@ -27,11 +27,12 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
-    const d = {parking:e.lockid,
-            endtime: e.endtime,
-            starttime: e.starttime,
-            price: e.price,
-            openid: app.globalData.openid};
+    const d = {lockid:e.detail.value.parking,
+            endtime: e.detail.value.endtime,
+            starttime: e.detail.value.starttime,
+            price: e.detail.value.price,
+            openid: app.globalData.openid,
+            addr: app.globalData.address};
     app.globalData.parkingSpaces.push(d);
     // console.log(app.globalData)
   },

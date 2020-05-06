@@ -37,7 +37,7 @@
   <!-- 设置价格 -->
   <view>
     <text>价格</text>
-    <input type="number" name="price"></input>
+    <input type="number" name="price" placeholder="5"></input>
     <text>元/小时</text>
   </view>
   <!-- 提交、复位按钮 -->

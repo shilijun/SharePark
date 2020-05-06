@@ -1,34 +1,33 @@
-// pages/home/home.js
-const app = getApp();
+// miniprogram/pages/findParking/findParking.js
+const app = getApp()
 Page({
-
   data: {
-
+    avaliabelParkings: []
   },
 
   onLoad: function (options) {
-    // 如果没有登录，则重定向到个人中心登录
-    if(app.globalData.userInfo === null){
-      wx.redirectTo({
-        url: '/pages/userCenter/userCenter',
-      })
-    }    
-  },
-
-  // 处理车位出租逻辑， 跳转到rentoutDetail页面
-  rentout: function(){
-    wx.navigateTo({
-      url: '/pages/rentoutDetail/rentoutDetail',
+    console.log( app.globalData.parkingSpaces)
+    this.setData({
+      avaliabelParkings: app.globalData.parkingSpaces
     })
   },
 
-    // 跳转到findParking 页面
-    rent: function(){
-      wx.navigateTo({
-        url: '/pages/findParking/findParking',
-      })
-    },
+  rent: function(e){
+    console.log("rend id chosen ")
+    // console.log(e)
+    const choose = this.data.avaliabelParkings[e.currentTarget.dataset.index];
 
+    // console.log(choose)
+    // 出租记录
+    const d = {
+      renterid: choose.openid,
+      tenantid: app.globalData.openid,
+      starttime: choose.starttime,
+      endtime: choose.endtime
+    }
+    app.globalData.rendRecordsTable.push(d);
+    console.log(d)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
