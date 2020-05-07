@@ -1,40 +1,16 @@
 // pages/records/records.js
 const app = getApp();
+const userUtils = require('../../utils/user-utils')
+const lockUtils = require('../../utils/lock-utils')
 Page({  
   data: {
     // 我的出租记录
     rendRecords:[      
     ],
-    // 我的租车位记录
-    mrendRecords:[
-    ],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
-    const myid = app.globalData.openid;
-    console.log("myid")
-    // console.log(myid)
-    // console.log(app.globalData.rendRecordsTable)
-    var records= [];
-    var records2=[];
-    for(var r of app.globalData.rendRecordsTable){
-      console.log(r);
-      if(r.renterid===myid){
-        console.log("find a record as render");
-        records.push(r)
-      }
-      if(r.tenantid===myid){
-        console.log("find a record as render");
-        records2.push(r)
-      }
-    }
-    this.setData({
-      rendRecords:records,
-      mrendRecords: records2,
-    })
   },
 
   seeDetail: function(event){
@@ -43,18 +19,41 @@ Page({
       url: '/pages/recordDetail/recordDetail?id='+event.currentTarget.dataset.id
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
+  onShow: function () {
+    const myid = app.globalData.openid;
+    var records= [];
+    console.log("myid", myid)
+    for(var r of app.globalData.rendRecordsTable){
+      r['addr'] = lockUtils.getAddr(r.lockid);
+
+      var avatarName = null;
+
+      // 如果我是租车位者
+      if(r.tenantid===myid){
+        console.log("find a record as render");
+        r['type']=1
+        avatarName = userUtils.getAvatarNickname(r.renderid);
+      }
+      // 我是出租者
+      if(r.renderid===myid){
+        console.log("find a record as render");
+        r['type']=0;
+        avatarName = userUtils.getAvatarNickname(r.tenantid);
+      }
+
+      r['avatarUrl'] = avatarName[0];
+      r['nickName'] = avatarName[1];
+      records.push(r)
+    }
+    // console.log(records)
+    this.setData({
+      rendRecords:records,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  
+  onReady: function () {
   },
 
   /**

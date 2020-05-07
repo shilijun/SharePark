@@ -140,14 +140,14 @@ sendRequest: function (qqMapApi) {
 
 // 将用户信息插入用户表
 signin: function(){
-  const index = app.globalData.userstable.findIndex(text => text.openid === app.globalData.openid);
+  const index = app.globalData.usersTable.findIndex(text => text.openid === app.globalData.openid);
   if(index==-1){
-    app.globalData.userstable.push(
+    app.globalData.usersTable.push(
           {openid: app.globalData.openid,
           nickname: this.data.nickname,
           avatarUrl: this.data.avatarUrl})
     console.log("用户信息写入表中")
-    console.log(app.globalData.userstable)
+    console.log(app.globalData.usersTable)
   }
 }
 })

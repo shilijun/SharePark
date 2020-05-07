@@ -19,25 +19,47 @@ App({
       userInfo: null,
       openid: null,
       address: null,
+      // 待出租的车位
       parkingSpaces : [
         {
-          addr: {address: "成都市龙泉驿区人民政府(东街东)", lat: 30.55663, long:"undefined"},
-          endtime: "11:32",
           lockid: "lock000",
           openid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+          addr: {address: "成都市龙泉驿区人民政府(东街东)", lat: 30.55663, long:"104.27471"},
           price: "5",
+          endtime: "11:32",
           starttime: "11:32"
         }
-    ],
-      rendRecordsTable: [
-        { endtime: "11:32",
-          renderid: "oR6fd4v520A5p902RsWBx4xjrpS4",
-          starttime: "11:32",
-          tenantid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+      ],
+      // 所有车位
+      parkingTable:[
+        {
+          lockid: "lock000",
+          openid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+          address: {addr: "成都市龙泉驿区人民政府(东街东)", lat: 30.55663, long:"104.27471"},
+          price: 5
         }
-        ],
-      userstable: [],
-      
+      ],
+      // 出租记录
+      rendRecordsTable: [
+        { 
+          lockid: "lock000",
+          renderid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+          startdate: "05-01",
+          starttime: "00:00",
+          tenantid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+          unitPrice: 5,
+          endtime: null,
+          enddate:null,
+        }
+      ],
+      //用户信息
+      usersTable: [
+        {
+          openid:  "oR6fd4v520A5p902RsWBx4xjrpS4",
+          avatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/H9O9fay6boqnxImHaqM1DXr7s4RChTIGibGQd0Rey9dkK4wibOwN8u3LBgOshTFnbpA7F8dnU0OXBqJcMUiaSX8ZQ/132",
+          nickName: "GgYy"
+        }
+      ],
     }
   }
 })

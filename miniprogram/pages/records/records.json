@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "myCard": "/components/Card/Card"
+  },
   "navigationBarTitleText": "使用记录"
 }

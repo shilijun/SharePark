@@ -7,6 +7,7 @@ Page({
 
   onLoad: function (options) {
     console.log( app.globalData.parkingSpaces)
+    console.log(this.data)
     this.setData({
       avaliabelParkings: app.globalData.parkingSpaces
     })
@@ -26,7 +27,12 @@ Page({
       endtime: choose.endtime
     }
     app.globalData.rendRecordsTable.push(d);
-    console.log(d)
+    console.log("租车位信息");
+    console.log(d);
+
+    wx.switchTab({
+      url: '/pages/records/records',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

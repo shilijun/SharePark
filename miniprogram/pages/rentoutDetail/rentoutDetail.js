@@ -9,14 +9,18 @@ Page({
   data: {
     starttime:null,
     endtime:null,
-    myparking: ['lock000', 'lock001'],
+    myparking: [],
+    address: [],
     currentParking: null
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+  },
+  onShow: function () {
+    // 找到自己的车位
+    this.findMyPark();
+    console.log(this.data.myparking);
+        // 时间初始化
     var time = util.gettime(new Date());
     console.log("time now")
     console.log(time)
@@ -32,8 +36,13 @@ Page({
             starttime: e.detail.value.starttime,
             price: e.detail.value.price,
             openid: app.globalData.openid,
-            addr: app.globalData.address};
-    app.globalData.parkingSpaces.push(d);
+            addr: app.globalData.address
+          };
+    app.globalData.rendRecordsTable.push(d);
+    
+    wx.switchTab({
+      url: '/pages/home/home',
+    })
     // console.log(app.globalData)
   },
   formReset: function () {
@@ -43,13 +52,20 @@ Page({
   // 查找属于自己的车位
   findMyPark: function(){
     // 暂时使用本地数据
-    for(ps of app.globalData.parkingSpaces){
-      if (ps.openid === app.globalData.openid){
-        this.setData({
-          myparking: this.data.myparking.push(ps.openid)
-        })
+    var parkings = [];
+    var addresses = [];
+    for(var ps of app.globalData.parkingTable){
+      // console.log(ps)
+      if (ps.openid == app.globalData.openid){
+        parkings.push(ps.lockid)
+        addresses.push(ps.addr)
       }
     }
+    this.setData({
+      myparking: parkings,
+      address:addresses
+    })
+    console.log(this.data.address)
   },
 
   bindParkingChange: function(e){
@@ -70,17 +86,17 @@ Page({
       endtime: e.detail.value
     })
   },
+
+  // 跳转到 newParking
+  newParking: function(){
+    wx.navigateTo({
+      url: '/pages/newParking/newParking',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
   },
 

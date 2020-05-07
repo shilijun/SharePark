@@ -1,0 +1,25 @@
+<view class='card-container'>
+  <!-- 标题 -->
+  <text class="title">{{(type==0)?'您的车位正在出租':'您正在租用车位'}}</text>
+  <!-- 金额 -->
+  <text class="money" class="{{(type==0)?'earn':'pay'}}">{{(type==0)?"+ ":"- "}}{{totalmoney}}</text>
+
+  <!-- 用户信息 -->
+  <view class="userInfo">
+    <image class='user-image' src='{{avatarUrl}}'></image>
+    <text class="user-name">{{(type==0)?'使用用户':'车位主'}}: {{nickName}}</text>
+  </view>
+  <!-- 车位信息 -->
+  <view class="parking-info">
+    <text>{{lockid}}</text>
+    <text>{{addr}}</text>
+  </view>
+    <!-- 出租时间 -->
+  <text class="date-time">{{date}} {{time}} - {{nowDate}} {{nowTime}} </text>
+
+  <!-- 提醒 -->
+  <text>提醒：{{prompt}}</text> 
+      <!-- <text wx:if="{{item.isHighlyRecommended}}" style="font-size:16px; color:red;">强烈推荐</text> -->
+      <!-- <text catchtap='f0' wx:if='{{index < (weeklyMovieList.length - 1)}}' class='return-button'>返回本周</text> -->
+
+</view>

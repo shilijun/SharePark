@@ -1,1 +1,29 @@
 /* pages/records/records.wxss */
+.record-swiper {
+  height: 90vh; 
+}
+/* 不知道为啥这个起不了效果 */
+swiper-item{
+  background-color: rgb(204, 203, 203);
+}
+.content {
+  font-size: 40rpx;
+  margin: 200rpx 50rpx 50rpx;
+  color: #9B9B9B;
+  text-align: center;
+}
+
+.empty  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 60rpx;
+  margin: 200rpx 50rpx 50rpx;
+  color: #9B9B9B;
+}
+
+.empty .content {
+  color: #9B9B9B;
+  text-align: center;
+}

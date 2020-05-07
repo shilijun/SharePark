@@ -13,6 +13,12 @@ Page({
         url: '/pages/userCenter/userCenter',
       })
     }    
+    // 保证先获取openid
+    if( app.globalData.openid == null){
+      wx.switchTab({
+        url: '/pages/userCenter/userCenter',
+      })
+    }
   },
 
   // 处理车位出租逻辑， 跳转到rentoutDetail页面

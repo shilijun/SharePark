@@ -1,0 +1,41 @@
+.card-container {
+  background-color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 50rpx;
+}
+.title{
+  font-size: 1.5em;
+}
+
+.userInfo{
+  display: flex;
+  flex-direction: column;
+}
+.user-image {
+  border-radius: 50%;
+  width: 200rpx;
+  height: 200rpx;
+}
+.user-name {
+  text-align: center;
+  color: #9B9B9B;
+  font-size: 40rpx;
+  margin: 0rpx 0 60rpx;
+}
+.earn{
+  color: red;
+  font-size: 1.5em;
+}
+.pay{
+  font-size: 1.5em;
+  color: green;
+}
+.parking-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

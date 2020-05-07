@@ -1,0 +1,15 @@
+<!--components/Item/Item.wxml-->
+<view class="item-container">
+  <!-- 图标 -->
+  <image src="{{(type==0)?earningImage:payImage}}"></image>
+  <!-- 标题、时间 -->
+  <view class="subcontainer">
+    <text class="title">{{(type==0)?"出租收入":"出租支出"}}</text>
+    <text class="time">时间 {{date}} {{time}}</text>
+  </view>
+  <!-- 金额 -->
+  <text class="money" class="{{(type==0)?'earn':'pay'}}">{{(type==0)?"+ ":"- "}}{{money}}</text>
+  <!-- 详情按钮 -->
+  <text class="detailButton">详情</text>
+</view>
+

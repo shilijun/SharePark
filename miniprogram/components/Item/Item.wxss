@@ -1,0 +1,49 @@
+/* components/Item/Item.wxss */
+
+.item-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  color: #9B9B9B;
+  border: 1rpx solid #DDD;
+  padding: 25rpx;
+}
+.subcontainer{
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.title{
+  color: black;
+  font-size: 1em;
+}
+.time{
+  margin-top: 20rpx;
+}
+.money{
+  margin-left: 40rpx;
+}
+.earn{
+  color: red;
+  font-size: 1.5em;
+}
+.pay{
+  font-size: 1.5em;
+  color: green;
+}
+.detailButton{
+  color: orange;
+  border: solid 1rpx;
+  font-size: 0.8em;
+  padding: 3rpx;
+  border-radius: 20%;
+}
+image{
+  width: 68rpx;
+  height: 68rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
