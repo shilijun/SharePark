@@ -1,5 +1,6 @@
 <!--pages/home/home.wxml-->
 <view class="container">
+  <image  class="logo" src='../../images/logo.png'></image>
   <button catchtap="rent">找车位</button>
   <button catchtap="rentout">出租车位</button>
 </view>
