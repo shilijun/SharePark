@@ -1,16 +1,17 @@
+
+
 <view class="container">
+      <!-- style="background-image: url({{avatarUrl}})" -->
+
   <view class="userinfo">
-    <button 
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-      size="default"
-    ></button>
-    <view class="userinfo-nickname-wrapper">
-      <button class="userinfo-nickname" bindtap="onGetOpenidAndLocation" open-type="getUserInfo" 
+    <view  class="avatar"><image class="avatar" src="{{avatarUrl}}"></image></view>
+    <view class="nickname">
+      <button bindtap="onGetOpenidAndLocation" open-type="getUserInfo" 
       bindgetuserinfo="onGetUserInfo">{{logged? nickname:"登录"}}</button>
     </view>
     <view class="info">{{address}}</view>
   </view>
+
   <!-- 我的车位 -->
   <view class="item">
     <view class="item-text">

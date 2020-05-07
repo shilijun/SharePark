@@ -20,14 +20,18 @@ Page({
       })
       return
     }
-    wx.authorize({scope: "scope.userLocation"});
-    
+    wx.authorize({scope: "scope.userLocation", scope:"scope.userInfo"});
+  
     wx.getSetting({
         success: res => {
+          console.log("getsetting")
           if (res.authSetting['scope.userInfo']) {
             // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+            console.log("authSetting")
             wx.getUserInfo({
               success: res => {
+                console.log("userinfo")
+                console.log(res)
                 this.setData({
                   logged:true,
                   avatarUrl: res.userInfo.avatarUrl,
@@ -149,5 +153,8 @@ signin: function(){
     console.log("用户信息写入表中")
     console.log(app.globalData.usersTable)
   }
+},
+onShow: function(){
+  console.log(this.data.avatarUrl)
 }
 })
