@@ -15,7 +15,7 @@
     <text>{{addr}}</text>
   </view>
     <!-- 出租时间 -->
-  <text class="date-time">{{date}} {{time}} - {{nowDate}} {{nowTime}} </text>
+  <text class="date-time">{{time}} - {{nowTime}} </text>
 
   <!-- 提醒 -->
   <text>提醒：{{prompt}}</text> 

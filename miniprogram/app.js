@@ -27,7 +27,8 @@ App({
           addr: {address: "成都市龙泉驿区人民政府(东街东)", lat: 30.55663, long:"104.27471"},
           price: "5",
           endtime: "11:32",
-          starttime: "11:32"
+          starttime: "11:32",
+          everyday: true
         }
       ],
       // 所有车位
@@ -44,12 +45,12 @@ App({
         { 
           lockid: "lock000",
           renderid: "oR6fd4v520A5p902RsWBx4xjrpS4",
-          startdate: "05-01",
+          // startdate: "05-01",
           starttime: "00:00",
           tenantid: "oR6fd4v520A5p902RsWBx4xjrpS4",
           unitPrice: 5,
           endtime: null,
-          enddate:null,
+          // enddate:null,
         }
       ],
       //用户信息

@@ -1,28 +1,55 @@
 /* miniprogram/pages/rentoutDetail/rentoutDetail.wxss */
 /**index.wxss**/
 
-page {
+.container {
   background: #f6f6f6;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-.item{
-  margin-top: 40rpx;
-  height: 140rpx;
-  width: 100%;
+.header {
+  border: 1rpx solid #DDD;
+  display: flex;
+  padding: 20rpx;
+  align-items: center;
+  margin-bottom: 30rpx;
+  margin-left: 20rpx;
+}
+
+.add {
+  width: 40rpx;
+  margin: 10rpx;
+  color: #7ED321;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.new{
+  /* flex: 1; 权重 */
+  padding-left: 30rpx;
+  padding-right: 20rpx;
+}
+/* 大标题格式 */
+.set-title{
+  font-size: 1.5em;
+  text-align: center;
+}
+.section{
+  margin-top: 20rpx;
+  padding: 20rpx;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: none;
-  border-right: none;
   display: flex;
   flex-direction: row;
   align-items: center;
-  transition: all 300ms ease;
-  height: auto;
-  padding: 0 0 0 40rpx;
-  flex-direction: column;
-  align-items: flex-start;
   box-sizing: border-box;
 }
+.section-title{
+  /* flex: 1; */
+  margin:0 50rpx 0 50rpx;
+}
+.money{
+  width: 200rpx;
+  text-align: center;
+}
+

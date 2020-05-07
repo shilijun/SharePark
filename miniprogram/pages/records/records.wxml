@@ -5,7 +5,7 @@
       previous-margin="50rpx" next-margin="50rpx"
       current='0'>
       <swiper-item class='movie' wx:for="{{rendRecords}}">
-        <myCard type='{{item.type}}' addr='{{item.addr}}' lockid="{{item.lockid}}" date="{{item.startdate}}" time="{{item.starttime}}" unitPrice="{{item.unitPrice}}"></myCard>
+        <myCard type='{{item.type}}' addr='{{item.addr}}' lockid="{{item.lockid}}"  time="{{item.starttime}}" unitPrice="{{item.unitPrice}}"></myCard>
       </swiper-item>
    </swiper>
   </block>

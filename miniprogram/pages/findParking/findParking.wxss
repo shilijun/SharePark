@@ -7,21 +7,27 @@ page {
   justify-content: flex-start;
 }
 
-.item{
+
+.section{
   margin-top: 40rpx;
-  height: 140rpx;
-  width: 100%;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: none;
-  border-right: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  transition: all 300ms ease;
-  height: auto;
-  padding: 0 0 0 40rpx;
+  /* 上右下左 */
+  padding: 30rpx 0 0 40rpx;  
   flex-direction: column;
   align-items: flex-start;
   box-sizing: border-box;
+}
+.item{
+  /* 上，左右，下 */
+  padding: 10rpx 0 10rpx; 
+  display: flex;
+  align-items: center;
+}
+.item-title{
+  color: #aaa;
+  margin-right: 30rpx;
 }

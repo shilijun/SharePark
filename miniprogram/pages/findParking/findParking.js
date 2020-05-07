@@ -18,13 +18,16 @@ Page({
     // console.log(e)
     const choose = this.data.avaliabelParkings[e.currentTarget.dataset.index];
 
-    // console.log(choose)
+    console.log("租")
+    console.log(choose)
     // 出租记录
     const d = {
+      lockid:choose.lockid,
       renderid: choose.openid,
       tenantid: app.globalData.openid,
       starttime: choose.starttime,
-      endtime: choose.endtime
+      endtime: choose.endtime,
+      unitPrice: choose.price,
     }
     app.globalData.rendRecordsTable.push(d);
     console.log("租车位信息");

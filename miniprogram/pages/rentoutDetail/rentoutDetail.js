@@ -36,10 +36,14 @@ Page({
             starttime: e.detail.value.starttime,
             price: e.detail.value.price,
             openid: app.globalData.openid,
-            addr: app.globalData.address
+            addr: app.globalData.address,
+            everyday: (e.detail.value.everyday.length===1)?true:false,
           };
-    app.globalData.rendRecordsTable.push(d);
+    app.globalData.parkingSpaces.push(d);
     
+    console.log("submit 车位设置")
+    console.log(app.globalData.parkingSpaces)
+
     wx.switchTab({
       url: '/pages/home/home',
     })
