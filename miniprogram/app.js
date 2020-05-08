@@ -40,14 +40,14 @@ App({
           price: 5
         }
       ],
-      // 出租记录
+      // 出租状态的车位记录
       rendRecordsTable: [
         { 
           lockid: "lock000",
           renderid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+          tenantid: "oR6fd4v520A5p902RsWBx4xjrpS4",
           // startdate: "05-01",
           starttime: "00:00",
-          tenantid: "oR6fd4v520A5p902RsWBx4xjrpS4",
           unitPrice: 5,
           endtime: null,
           // enddate:null,

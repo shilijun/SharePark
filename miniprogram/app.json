@@ -1,4 +1,7 @@
 {
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  },
   "pages": [
     "pages/home/home",
     "pages/userCenter/userCenter",
@@ -54,9 +57,8 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "SharePark",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "sitemapLocation": "sitemap.json"
 }
