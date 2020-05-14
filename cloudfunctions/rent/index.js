@@ -15,7 +15,8 @@ exports.main = async (event, context) => {
     })
     .update({
       data: {
-        tenantid: event.tenantid
+        tenantid: event.tenantid,
+        starttime: event.starttime
       }
     })
   } catch(e) {

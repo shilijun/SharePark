@@ -6,14 +6,12 @@ Page({
   data: {
     // 我的出租记录
     rendRecords:[      
-
     ],
   },
 
 
   onLoad: function (options) {
   },
-
 
   onShow: function () {
     const myid = app.globalData.openid;
@@ -24,7 +22,6 @@ Page({
         rendRecords:this.data.rendRecords.concat(res),
       })
     })
-
   },
 
 })

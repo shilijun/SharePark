@@ -1,0 +1,25 @@
+/* miniprogram/pages/rentDetail/rentDetail.wxss */
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80vh;
+}
+.section{
+  border: solid #eee;
+  border-radius: 30%;
+}
+.text-sec{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.sec-title{
+  flex: 1;
+  align-self: flex-start;
+  margin-left: 20rpx;
+}
+.sec-content{
+  flex: 2;
+  align-self: flex-start;
+}

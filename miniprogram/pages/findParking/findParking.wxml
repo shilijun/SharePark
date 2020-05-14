@@ -22,7 +22,9 @@
       <text class="item-title">地址:</text>
       <text>{{item.address}}</text> 
     </view>
-    
-    <button  class='submit' catchtap="rent" data-index="{{index}}">租</button>
+    <view class="row">
+      <button  class='submit' catchtap="seeDetail" data-index="{{index}}">详情</button>
+      <button  class='submit' catchtap="rent" data-index="{{index}}">立刻租</button>
+    </view>
   </view>
 </view>

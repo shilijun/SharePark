@@ -129,7 +129,7 @@ sendRequest: function (qqMapApi) {
           district: res.data.result.address_component.district,
           street: res.data.result.address_component.street,
           lat: res.data.result.location.lat,
-          long: res.data.result.location.long,
+          long: res.data.result.location.lng,
           address: res.data.result.formatted_addresses.recommend
         }
         that.setData({

@@ -22,7 +22,8 @@
     "pages/recordDetail/recordDetail",
     "pages/rentoutDetail/rentoutDetail",
     "pages/findParking/findParking",
-    "pages/newParking/newParking"
+    "pages/newParking/newParking",
+    "pages/rentDetail/rentDetail"
   ],
   "permission": {
     "scope.userLocation": {

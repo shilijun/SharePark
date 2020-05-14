@@ -31,3 +31,8 @@ page {
   color: #aaa;
   margin-right: 30rpx;
 }
+.row{
+  display: flex;
+  justify-content: space-around;
+  margin: 0 100rpx 0;
+}
