@@ -1,26 +1,45 @@
 // miniprogram/pages/rentoutDetail/rentoutDetail.js
 var util = require('../../utils/utils')
+const parkingutil = require('../../utils/lock-utils')
+const rentutil = require('../../utils/rent-utils')
+
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     starttime:null,
     endtime:null,
-    myparking: [],
-    address: [],
+    paringids:[],
     currentParking: null
+  },
+  things:{
+    myparking: [
+      // {
+      //   lockid: null,
+      //   address: null ,
+      //   lat: null,
+      //   long: null,
+      //   price: null
+      // }
+    ],
   },
 
   onLoad: function (options) {
   },
   onShow: function () {
-    // 找到自己的车位
-    this.findMyPark();
-    console.log(this.data.myparking);
-        // 时间初始化
+    // 找到自己的车位, 
+    parkingutil.findMyPark((res)=>{
+      console.log("callback")
+      for (var item of res){
+        this.data.paringids.push(item.lockid)
+      }
+      this.setData({
+        paringids: this.data.paringids
+      })
+      this.things.myparking = res
+    });
+
+    // 时间初始化
     var time = util.gettime(new Date());
     console.log("time now")
     console.log(time)
@@ -29,50 +48,42 @@ Page({
       endtime: time
     });
   },
+
   formSubmit: function (e) {
+    // 表单验证
+    if(e.detail.value.price=="" || this.data.currentParking===null ||      this.data.currentParking===undefined){
+      util.showToast("请完善信息",0)
+      return
+    }
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    // 准备提交的数据
+    var ind = Number.parseInt(this.data.currentParking)
+    let choose = this.things.myparking[ind]
     const d = {lockid:e.detail.value.parking,
-            endtime: e.detail.value.endtime,
-            starttime: e.detail.value.starttime,
-            price: e.detail.value.price,
-            openid: app.globalData.openid,
-            addr: app.globalData.address,
+              // renderid
+              price: e.detail.value.price,
+              allowstart: e.detail.value.endtime,
+              allowend: e.detail.value.starttime,
+            address: choose.address,
+            lat: choose.lat,
+            long: choose.long,
             everyday: (e.detail.value.everyday.length===1)?true:false,
           };
-    app.globalData.parkingSpaces.push(d);
-    
+    rentutil.addRenting(d)
     console.log("submit 车位设置")
-    console.log(app.globalData.parkingSpaces)
 
     wx.switchTab({
       url: '/pages/home/home',
     })
-    // console.log(app.globalData)
   },
   formReset: function () {
     console.log('form发生了reset事件')
   },
 
-  // 查找属于自己的车位
-  findMyPark: function(){
-    // 暂时使用本地数据
-    var parkings = [];
-    var addresses = [];
-    for(var ps of app.globalData.parkingTable){
-      // console.log(ps)
-      if (ps.openid == app.globalData.openid){
-        parkings.push(ps.lockid)
-        addresses.push(ps.addr)
-      }
-    }
-    this.setData({
-      myparking: parkings,
-      address:addresses
-    })
-    console.log(this.data.address)
-  },
-
   bindParkingChange: function(e){
+    this.setData({
+      myparking:this.data.myparking
+    })
     console.log(e.detail)
     this.setData({
       currentParking: e.detail.value

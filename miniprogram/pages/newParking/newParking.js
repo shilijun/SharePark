@@ -1,32 +1,57 @@
 // miniprogram/pages/newParking/newParking.js
 const app = getApp();
-
+const paringutil = require('../../utils/lock-utils')
+const utils = require('../../utils/utils')
 Page({
   data: {
-    address: null
+    address: null,
+  },
+  things:{
+    long:null,
+    lat:null,
+    name:null
   },
   onLoad: function (options) {
-    // console.log(app.globalData)
-    this.setData({
-      address: app.globalData.address.address 
-    })
+
   },
 
 
   formSubmit: function (e) {
+    if(e.detail.value.lockid=="" || e.detail.value.price=="" || this.things.long==null){
+      utils.showToast("请填写完整",0)
+      return 
+    }
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
     const d = {lockid:e.detail.value.lockid,
-            price: e.detail.value.price,
             openid: app.globalData.openid,
-            address: app.globalData.address};
-    console.log(d)
-    app.globalData.parkingTable.push(d);
+            address: this.data.address,
+            lat: this.things.lat,
+            long: this.things.long,
+            addname: this.things.name,
+            price: e.detail.value.price,
+          };
+    // console.log(d)
+    paringutil.addParking(d)
     wx.navigateTo({
       url: '/pages/rentoutDetail/rentoutDetail',
     })
   },
   formReset: function () {
     console.log('form发生了reset事件')
+  },
+
+  // 选择车位地址
+  chooseLoc: function(){
+    wx.chooseLocation({
+      success: (res) => {
+        this.things.long = res.longitude
+        this.things.lat = res.latitude
+        this.things.name = res.name
+        this.setData({
+          address:res.address
+        })
+      },
+    })
   },
 
   onReady: function () { },

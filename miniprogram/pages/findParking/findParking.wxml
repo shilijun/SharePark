@@ -15,12 +15,12 @@
     
     <view class="item">
       <text class="item-title">可用时间:</text>
-      <text>{{item.starttime}}-{{item.endtime}}</text>
+      <text>{{item.allowstart}}-{{item.allowend}}</text>
     </view>
 
     <view class="item">
       <text class="item-title">地址:</text>
-      <text>{{item.addr.address}}</text> 
+      <text>{{item.address}}</text> 
     </view>
     
     <button  class='submit' catchtap="rent" data-index="{{index}}">租</button>

@@ -5,24 +5,11 @@
       previous-margin="50rpx" next-margin="50rpx"
       current='0'>
       <swiper-item class='movie' wx:for="{{rendRecords}}">
-        <myCard type='{{item.type}}' addr='{{item.addr}}' lockid="{{item.lockid}}"  time="{{item.starttime}}" unitPrice="{{item.unitPrice}}"></myCard>
+        <myCard type='{{item.type}}' addr='{{item.addr}}' lockid="{{item.lockid}}"  time="{{item.allowstart}}" unitPrice="{{item.price}}"></myCard>
       </swiper-item>
    </swiper>
   </block>
 
-    <!-- <view class="item" wx:for="{{rendRecords}}" catchtap="seeDetail" data-id="{{index}}">
-      <text>{{item.renderid}}</text>
-      <text>{{item.tenantid}}</text>
-      <text>{{item.starttime}}</text>
-      <text>{{item.endtime}}</text>
-    </view> -->
-
-    <!-- <view class="item" wx:for="{{mrendRecords}}" catchtap="seeDetail" data-id="{{index}}">
-      <text>{{item.renderid}}</text>
-      <text>{{item.tenantid}}</text>
-      <text>{{item.starttime}}</text>
-      <text>{{item.endtime}}</text>
-    </view>  -->
   <block wx:else>
     <view class="empty">
       <text class="content">您没用租用车位或正在被租用车位</text>

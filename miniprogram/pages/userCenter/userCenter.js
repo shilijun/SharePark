@@ -1,15 +1,16 @@
 
 //index.js
 const app = getApp()
+const userUtils = require('../../utils/user-utils')
 
 Page({
   data: {
     avatarUrl: '/images/user-unlogin.png',
-    nickname:null,
+    nickName:null,
     userInfo: {},
     logged: false,
-    takeSession: false,
-    requestResult: '',
+    // takeSession: false,
+    // requestResult: '',
     address: null,
   },
 
@@ -24,10 +25,8 @@ Page({
   
     wx.getSetting({
         success: res => {
-          console.log("getsetting")
           if (res.authSetting['scope.userInfo']) {
             // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-            console.log("authSetting")
             wx.getUserInfo({
               success: res => {
                 console.log("userinfo")
@@ -35,7 +34,7 @@ Page({
                 this.setData({
                   logged:true,
                   avatarUrl: res.userInfo.avatarUrl,
-                  nickname:res.userInfo.nickName,
+                  nickName:res.userInfo.nickName,
                   userInfo: res.userInfo
                 });
                 // 自己的信息添加到全局
@@ -54,16 +53,18 @@ Page({
   },
 
   onGetUserInfo: function(e) {
+    // 获取openid或地理信息
+    this.onGetOpenidAndLocation();
+    // 获取用户信息
     console.log("用户信息")
     console.log(e)
     if (!this.data.logged && e.detail.userInfo) {
       this.setData({
         logged: true,
         avatarUrl: e.detail.userInfo.avatarUrl,
-        nickname:e.detail.userInfo.nickName,
+        nickName:e.detail.userInfo.nickName,
         userInfo: e.detail.userInfo
       })
-
     }
   },
   onGetOpenidAndLocation: function(){
@@ -79,10 +80,7 @@ Page({
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
         app.globalData.openid = res.result.openid
-        that.signin()
-        // wx.navigateTo({
-        //   url: '../userConsole/userConsole',
-        // })
+        userUtils.signin(res.result.openid, that.data.avatarUrl, that.data.nickName)
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
@@ -134,7 +132,7 @@ sendRequest: function (qqMapApi) {
           long: res.data.result.location.long,
           address: res.data.result.formatted_addresses.recommend
         }
-        this.setData({
+        that.setData({
           address: res.data.result.formatted_addresses.recommend
         })
       }
@@ -142,19 +140,7 @@ sendRequest: function (qqMapApi) {
   })
 },
 
-// 将用户信息插入用户表
-signin: function(){
-  const index = app.globalData.usersTable.findIndex(text => text.openid === app.globalData.openid);
-  if(index==-1){
-    app.globalData.usersTable.push(
-          {openid: app.globalData.openid,
-          nickname: this.data.nickname,
-          avatarUrl: this.data.avatarUrl})
-    console.log("用户信息写入表中")
-    console.log(app.globalData.usersTable)
-  }
-},
 onShow: function(){
-  console.log(this.data.avatarUrl)
+  // console.log(this.data.avatarUrl)
 }
 })

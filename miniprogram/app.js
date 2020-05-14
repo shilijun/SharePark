@@ -17,50 +17,50 @@ App({
 
     this.globalData = {
       userInfo: null,
-      openid: null,
+      openid: "oR6fd4v520A5p902RsWBx4xjrpS4",
       address: null,
       // 待出租的车位
-      parkingSpaces : [
-        {
-          lockid: "lock000",
-          openid: "oR6fd4v520A5p902RsWBx4xjrpS4",
-          addr: {address: "成都市龙泉驿区人民政府(东街东)", lat: 30.55663, long:"104.27471"},
-          price: "5",
-          endtime: "11:32",
-          starttime: "11:32",
-          everyday: true
-        }
-      ],
+      // parkingSpaces : [
+      //   {
+      //     lockid: "lock000",
+      //     openid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+      //     addr: {address: "成都市龙泉驿区人民政府(东街东)", lat: 30.55663, long:"104.27471"},
+      //     price: "5",
+      //     endtime: "11:32",
+      //     starttime: "11:32",
+      //     everyday: true
+      //   }
+      // ],
       // 所有车位
-      parkingTable:[
-        {
-          lockid: "lock000",
-          openid: "oR6fd4v520A5p902RsWBx4xjrpS4",
-          address: {addr: "成都市龙泉驿区人民政府(东街东)", lat: 30.55663, long:"104.27471"},
-          price: 5
-        }
-      ],
+      // parkingTable:[
+      //   {
+      //     lockid: "lock000",
+      //     openid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+      //     address: {addr: "成都市龙泉驿区人民政府(东街东)", lat: 30.55663, long:"104.27471"},
+      //     price: 5
+      //   }
+      // ],
       // 出租状态的车位记录
-      rendRecordsTable: [
-        { 
-          lockid: "lock000",
-          renderid: "oR6fd4v520A5p902RsWBx4xjrpS4",
-          tenantid: "oR6fd4v520A5p902RsWBx4xjrpS4",
-          // startdate: "05-01",
-          starttime: "00:00",
-          unitPrice: 5,
-          endtime: null,
-          // enddate:null,
-        }
-      ],
+      // rendRecordsTable: [
+      //   { 
+      //     lockid: "lock000",
+      //     renderid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+      //     tenantid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+      //     // startdate: "05-01",
+      //     starttime: "00:00",
+      //     unitPrice: 5,
+      //     endtime: null,
+      //     // enddate:null,
+      //   }
+      // ],
       //用户信息
-      usersTable: [
-        {
-          openid:  "oR6fd4v520A5p902RsWBx4xjrpS4",
-          avatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/H9O9fay6boqnxImHaqM1DXr7s4RChTIGibGQd0Rey9dkK4wibOwN8u3LBgOshTFnbpA7F8dnU0OXBqJcMUiaSX8ZQ/132",
-          nickName: "GgYy"
-        }
-      ],
+      // usersTable: [
+      //   {
+      //     openid:  "oR6fd4v520A5p902RsWBx4xjrpS4",
+      //     avatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/H9O9fay6boqnxImHaqM1DXr7s4RChTIGibGQd0Rey9dkK4wibOwN8u3LBgOshTFnbpA7F8dnU0OXBqJcMUiaSX8ZQ/132",
+      //     nickName: "GgYy"
+      //   }
+      // ],
     }
   }
 })

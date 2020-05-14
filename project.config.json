@@ -61,6 +61,20 @@
 					"id": -1,
 					"name": "pages/userCenter/userCenter",
 					"pathName": "pages/userCenter/userCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/findParking/findParking",
+					"pathName": "pages/findParking/findParking",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/records/records",
+					"pathName": "pages/records/records",
 					"scene": null
 				}
 			]

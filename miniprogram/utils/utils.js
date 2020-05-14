@@ -20,8 +20,17 @@ function formatNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
- 
+function showToast(s, type){
+  // type 0-warn 1-success
+  wx.showToast({
+    title: s,
+    success:()=>{
+    },
+    image: '../../images/warn.png'
+  })
+}
 module.exports = {
   formatTime: formatTime,
-  gettime: gettime
+  gettime: gettime,
+  showToast: showToast
 }

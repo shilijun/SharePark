@@ -6,8 +6,8 @@
   <view class="userinfo">
     <view  class="avatar"><image class="avatar" src="{{avatarUrl}}"></image></view>
     <view class="nickname">
-      <button bindtap="onGetOpenidAndLocation" open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo">{{logged? nickname:"登录"}}</button>
+      <button open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">{{logged? nickName:"登录"}}</button>
     </view>
     <view class="info">{{address}}</view>
   </view>
@@ -31,6 +31,6 @@
     </view>
   </view>
 
-  <van-button type="primary">按钮</van-button>
+  <!-- <van-button type="primary">按钮</van-button> -->
 
 </view>

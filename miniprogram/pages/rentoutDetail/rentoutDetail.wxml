@@ -15,9 +15,9 @@
   <!-- 选择车位 -->
     <view class="section">
       <text class="section-title">选择车位: </text>
-      <picker mode="selector" value="{{myparking[currentParking]}}" range="{{myparking}}" bindchange="bindParkingChange" name="parking">
+      <picker mode="selector" value="{{paringids[currentParking]}}" range="{{paringids}}" bindchange="bindParkingChange" name="parking">
         <view class="picker">
-          {{(currentParking===null)?"无":myparking[currentParking]}}
+          {{(currentParking===null)?"无":paringids[currentParking]}}
         </view>
       </picker>
     </view>

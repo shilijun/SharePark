@@ -3,7 +3,7 @@
   <!-- 地址 自动显示 -->
   <view class="section">
     <text class="section-title">地址：</text>
-    <text>{{address}}</text>
+    <text bindtap="chooseLoc">{{(address!=null)?address: "点击选择地址"}}</text>
   </view>
 
   <form bindsubmit="formSubmit" bindreset="formReset">
@@ -23,7 +23,6 @@
     <!-- 提交、复位按钮 -->
     <view class="btn-area">
       <button formType="submit">Submit</button>
-      <button formType="reset">Reset</button>
     </view>
 </form>
 </view>
