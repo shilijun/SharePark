@@ -10,17 +10,18 @@ Page({
     starttime:null,
     endtime:null,
     paringids:[],
-    currentParking: null
+    currentParking: null,
+    price: null
   },
   things:{
     myparking: [
-      // {
-      //   lockid: null,
-      //   address: null ,
-      //   lat: null,
-      //   long: null,
-      //   price: null
-      // }
+      {
+        lockid: null,
+        address: null ,
+        lat: null,
+        long: null,
+        price: null
+      }
     ],
   },
 
@@ -37,16 +38,23 @@ Page({
         paringids: this.data.paringids
       })
       this.things.myparking = res
+
+      // 如果车位已经设置了，则加载原来信息
+      rentutil.findMyRenting((res)=>{
+        console.log("[rentoutDetail -> callback(findMyRenting)]")
+        console.log(res)
+        for(var item of res){
+          var ind = this.things.myparking.map(it=>it.lockid).indexOf(item.lockid)
+          console.log(ind)
+          this.things.myparking[ind].starttime = item.allowstart
+          this.things.myparking[ind].endtime = item.allowend
+          this.things.myparking[ind].price = item.price
+        }
+        console.log("[rentoutDetail -> callback(findMyRenting)]")
+        console.log(this.things)
+      },true)
     });
 
-    // 时间初始化
-    var time = util.gettime(new Date());
-    console.log("time now")
-    console.log(time)
-    this.setData({
-      starttime: time,
-      endtime: time
-    });
   },
 
   formSubmit: function (e) {
@@ -76,17 +84,17 @@ Page({
       url: '/pages/home/home',
     })
   },
-  formReset: function () {
-    console.log('form发生了reset事件')
-  },
 
   bindParkingChange: function(e){
+    const ind = e.detail.value
+    console.log(this.things.myparking[ind])
     this.setData({
-      myparking:this.data.myparking
+      currentParking:ind
     })
-    console.log(e.detail)
     this.setData({
-      currentParking: e.detail.value
+      starttime: this.things.myparking[ind].starttime,
+      endtime: this.things.myparking[ind].endtime,
+      price:this.things.myparking[ind].price
     })
   },
   // 
@@ -108,45 +116,5 @@ Page({
       url: '/pages/newParking/newParking',
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -2,7 +2,7 @@ const app = getApp();
 const db = wx.cloud.database()
 
 
-// 增加可出租的车位 todo
+// 增加或更新可出租的车位 todo
 function addRenting(d){
   console.log("[rent-urils -> addRenting]")
   console.log(d)
@@ -22,9 +22,18 @@ function addRenting(d){
         })
         .catch(console.error)
       }else{
-        // update todo
-
-
+        // update 
+        console.log("更新车位设置信息 [rent-urils -> addRenting]")
+        
+        wx.cloud.callFunction({
+          name: 'updateRenting',
+          data: {
+            lockid: d.lockid,
+            allowstart: d.allowstart,
+            allowend: d.allowend,
+            price: d.price
+          }
+        })
 
       }
     },
@@ -62,7 +71,8 @@ function findRenting(callback){
 }
 
 // 查找我的出租记录
-function findMyRenting(callback){
+function findMyRenting(callback, onlyrent=false){
+  // 我是出租者
   db.collection('rentings').where({
     renterid: app.globalData.openid
   }).get({
@@ -90,6 +100,10 @@ function findMyRenting(callback){
     }
   })
 
+  // 我是租车位者
+  if(onlyrent===true){
+    return
+  }
   db.collection('rentings').where({
     renterid: app.globalData.openid
   }).get({

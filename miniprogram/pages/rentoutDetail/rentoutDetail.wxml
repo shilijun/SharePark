@@ -27,7 +27,7 @@
       <view class="section-title">开始时间: </view>
       <picker mode="time" value="{{starttime}}" start="00:00" end="23:59" bindchange="bindStartTimeChange" name="starttime">
         <view class="picker">
-          {{starttime}}
+          {{(starttime==null)?"请选择时间":starttime}}
         </view>
       </picker>
     </view>
@@ -36,7 +36,7 @@
       <view class="section-title">结束时间: </view>
       <picker mode="time" value="{{endtime}}" start="00:00" end="23:59" bindchange="bindEndTimeChange" name="endtime">
         <view class="picker">
-          {{endtime}}
+          {{(endtime==null)?"请选择时间": endtime}}
         </view>
       </picker>
     </view>
@@ -52,13 +52,12 @@
     <!-- 设置价格 -->
     <view class="section">
       <text class="section-title" >价格</text>
-      <input type="number" name="price" class="money"></input>
+      <input type="number" name="price" class="money" value="{{price}}"></input>
       <text>元/小时</text>
     </view>
     <!-- 提交、复位按钮 -->
     <view class="btn-area">
       <button formType="submit">Submit</button>
-      <button formType="reset">Reset</button>
     </view>
   </form>  
 </view>
