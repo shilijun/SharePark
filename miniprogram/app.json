@@ -7,8 +7,6 @@
     "pages/home/home",
     "pages/records/records",
     "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
     "pages/recordDetail/recordDetail",
     "pages/rentoutDetail/rentoutDetail",
     "pages/findParking/findParking",
