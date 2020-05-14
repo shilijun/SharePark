@@ -5,7 +5,6 @@ const rentutil = require('../../utils/rent-utils')
 
 const app = getApp();
 Page({
-
   data: {
     starttime:null,
     endtime:null,
@@ -58,24 +57,32 @@ Page({
   },
 
   formSubmit: function (e) {
+    console.log("[rentoutDetail -> formSubmit]")
+    const values = e.detail.value;
+    console.log(values)
+    
     // 表单验证
-    if(e.detail.value.price=="" || this.data.currentParking===null ||      this.data.currentParking===undefined){
+    if(values.price=="" || this.data.currentParking===null ||      this.data.currentParking===undefined||values.starttime==null||values.endtime==null){
       util.showToast("请完善信息",0)
       return
     }
-    console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    if(values.starttime>=values.endtime){
+      util.showToast("时间设置错误",0)
+      return
+    }
+    console.log('form发生了submit事件，携带数据为：', values);
     // 准备提交的数据
-    var ind = Number.parseInt(this.data.currentParking)
+    var ind = this.data.currentParking
     let choose = this.things.myparking[ind]
-    const d = {lockid:e.detail.value.parking,
+    const d = {lockid:values.parking,
               // renderid
-              price: e.detail.value.price,
-              allowstart: e.detail.value.endtime,
-              allowend: e.detail.value.starttime,
+              price: values.price,
+              allowstart: values.endtime,
+              allowend: values.starttime,
             address: choose.address,
             lat: choose.lat,
             long: choose.long,
-            everyday: (e.detail.value.everyday.length===1)?true:false,
+            everyday: (values.everyday.length===1)?true:false,
           };
     rentutil.addRenting(d)
     console.log("submit 车位设置")

@@ -2,29 +2,37 @@
 <!--miniprogram/pages/rentoutDetail/rentoutDetail.wxml-->
 
 <view class="container">
-  <view class="section" wx:for="{{avaliabelParkings}}">
-    <view class="item">
-      <text class="item-title">锁id:</text> 
-      <text>{{item.lockid}}</text>
-    </view>
+  <block wx:if="{{avaliabelParkings.length}}">
+      <view class="section" wx:for="{{avaliabelParkings}}">
+      <view class="item">
+        <text class="item-title">锁id:</text> 
+        <text>{{item.lockid}}</text>
+      </view>
 
-    <view class="item">
-      <text class="item-title">价格:</text> 
-      <text>{{item.price}}元/小时</text>
-    </view>
-    
-    <view class="item">
-      <text class="item-title">可用时间:</text>
-      <text>{{item.allowstart}}-{{item.allowend}}</text>
-    </view>
+      <view class="item">
+        <text class="item-title">价格:</text> 
+        <text>{{item.price}}元/小时</text>
+      </view>
+      
+      <view class="item">
+        <text class="item-title">可用时间:</text>
+        <text>{{item.allowstart}}-{{item.allowend}}</text>
+      </view>
 
-    <view class="item">
-      <text class="item-title">地址:</text>
-      <text>{{item.address}}</text> 
+      <view class="item">
+        <text class="item-title">地址:</text>
+        <text>{{item.address}}</text> 
+      </view>
+      <view class="row">
+        <button  class='submit' catchtap="seeDetail" data-index="{{index}}">详情</button>
+        <button  class='submit' catchtap="rent" data-index="{{index}}">立刻租</button>
+      </view>
     </view>
-    <view class="row">
-      <button  class='submit' catchtap="seeDetail" data-index="{{index}}">详情</button>
-      <button  class='submit' catchtap="rent" data-index="{{index}}">立刻租</button>
+  </block>
+  <block wx:else>
+    <view class="empty">
+      <text class="content">没有可用车位</text>
     </view>
-  </view>
+  </block>
+
 </view>

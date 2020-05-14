@@ -9,7 +9,7 @@
       <button open-type="getUserInfo" 
       bindgetuserinfo="onGetUserInfo">{{logged? nickName:"登录"}}</button>
     </view>
-    <view class="info">{{address}}</view>
+    <view class="info">{{(address==null)?"":address}}</view>
   </view>
 
   <!-- 我的车位 -->

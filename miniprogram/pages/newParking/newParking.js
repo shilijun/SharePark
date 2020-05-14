@@ -5,6 +5,7 @@ const utils = require('../../utils/utils')
 Page({
   data: {
     address: null,
+    addname: null,
   },
   things:{
     long:null,
@@ -48,7 +49,8 @@ Page({
         this.things.lat = res.latitude
         this.things.name = res.name
         this.setData({
-          address:res.address
+          address:res.address,
+          addname: res.name
         })
       },
     })

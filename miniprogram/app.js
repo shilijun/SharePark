@@ -17,10 +17,8 @@ App({
 
     this.globalData = {
       userInfo: null,
-      openid: "oR6fd4v520A5p902RsWBx4xjrpS4",
+      openid: null,
       address: {
-        lat: 30.55663,
-        long: 104.27571
       },
       // 待出租的车位
       // parkingSpaces : [

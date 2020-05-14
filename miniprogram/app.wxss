@@ -1,3 +1,15 @@
+.empty  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 60rpx;
+  margin: 200rpx 50rpx 50rpx;
+  color: #9B9B9B;
+}
+
+
+
 /* .container {
   display: flex;
   flex-direction: column;
